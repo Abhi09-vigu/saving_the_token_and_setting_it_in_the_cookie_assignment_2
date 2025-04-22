@@ -1,5 +1,9 @@
+const jwt = require('jsonwebtoken');
+
 const encrypt = (payload, secret) => {
-  // your code here and return token
+  // Set token to expire in 1 hour
+  const token = jwt.sign(payload, secret, { expiresIn: '1h' });
+  return token;
 };
 
 module.exports = encrypt;
